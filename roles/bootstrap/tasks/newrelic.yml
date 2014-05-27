@@ -1,0 +1,11 @@
+---
+# https://docs.newrelic.com/docs/server/installation-ubuntu-and-debian
+- apt_repository: repo='deb http://apt.newrelic.com/debian/ newrelic non-free' state=present
+- apt_key: url=https://download.newrelic.com/548C16BF.gpg state=present
+- apt: pkg=newrelic-sysmond update_cache=yes
+
+- name: Configure server monitor daemon
+  command: "nrsysmond-config --set license_key={{newrelic_license_key}}"
+
+- name: Start server monitor daemon
+  command: "/etc/init.d/newrelic-sysmond start"

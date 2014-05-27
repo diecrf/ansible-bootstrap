@@ -1,0 +1,9 @@
+---
+- name: update tzdata
+  command: /usr/sbin/dpkg-reconfigure --frontend noninteractive tzdata
+
+- name: restart nullmailer
+  service: name=nullmailer state=restarted
+
+- name: restart ssh
+  service: name=ssh state=restarted

@@ -1,0 +1,13 @@
+---
+- apt: update_cache=yes
+
+- apt: pkg=git,git-core,build-essential,libpq-dev,libreadline-dev state=present
+- apt: pkg=python-pycurl,python-psycopg2 state=present
+
+- apt: pkg=libreadline6-dev,zlib1g-dev,libssl-dev,libyaml-dev,libsqlite3-dev,sqlite3,libxml2-dev,libxslt1-dev state=present
+- apt: pkg=autoconf,libgdbm-dev,libncurses5-dev,automake,libtool,bison,pkg-config,libffi-dev state=present
+- apt: pkg=locate,tree,ack-grep,htop,nmap,dlocate state=present
+
+- apt: upgrade=yes
+
+

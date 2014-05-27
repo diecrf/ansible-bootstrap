@@ -1,0 +1,11 @@
+---
+- group: name=admin state=present
+
+# Group adm is needed to read logs
+- name: Create admin users
+  action: user name={{item.name}} groups=admin,adm shell=/bin/bash password={{item.password}}
+  with_items: users
+
+- name: Install authorized keys
+  action: authorized_key user={{item.name}} key="{{item.public_key}}"
+  with_items: users

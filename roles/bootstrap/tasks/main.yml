@@ -1,0 +1,9 @@
+---
+ - include: files.yml
+ - include: locale.yml
+ - include: apt.yml
+ - include: users.yml
+ - include: security.yml
+ - include: files.yml
+ - include: nullmailer.yml
+ - include: newrelic.yml

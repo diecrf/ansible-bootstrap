@@ -1,0 +1,4 @@
+---
+- name: Copy environment
+  template: src=environment dest=/etc/environment
+

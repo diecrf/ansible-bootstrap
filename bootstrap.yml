@@ -1,0 +1,6 @@
+---
+  - name: Bootstrap development servers
+    hosts: development
+    sudo: yes
+    roles:
+      - bootstrap

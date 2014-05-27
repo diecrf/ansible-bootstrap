@@ -1,0 +1,19 @@
+---
+# create the password with:
+# python -c 'import crypt; print crypt.crypt("password", "$1$SomeSalt$")'
+# based on https://github.com/ansible/ansible-examples/blob/master/language_features/user_commands.yml
+users:
+  - {name: 'user1', public_key: 'user1_key', password: 'user1_crypted_password' }
+  - {name: 'user2', public_key: 'user2_key', password: 'user2_crypted_password' }
+
+locale: en_GB.UTF-8
+language: 'en_GB:en'
+timezone: Europe/London
+
+mandrill_user: user@domain.com
+mandrill_api_key: mandrill_key
+
+nullmailler_admin_mail: user@domain.com
+nullmailer_domain: domain.com
+
+newrelic_license_key: newrelic_key

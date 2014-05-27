@@ -1,0 +1,23 @@
+---
+- name: Install nullmailer
+  action: apt pkg=nullmailer
+
+- name: Setup Mandrill upstream SMTP
+  action: lineinfile dest=/etc/nullmailer/remotes regexp="^smtp" line="smtp.mandrillapp.com smtp --port=25 --starttls --user={{mandrill_user}} --pass={{mandrill_api_key}}" state=present
+  notify: restart nullmailer
+
+- name: Setup default domain
+  action: lineinfile dest=/etc/nullmailer/defaultdomain regexp="{{nullmailer_domain}}" line="{{nullmailer_domain}}" state=present
+  notify: restart nullmailer
+
+- name: Setup server name
+  template: src=nullmailer/me dest=/etc/nullmailer mode=0644
+  notify: restart nullmailer
+
+- name: Setup adminaddr - admin of outgoing mail
+  template: src=nullmailer/adminaddr dest=/etc/nullmailer mode=0644
+  notify: restart nullmailer
+
+- name: Copy mailname
+  template: src=nullmailer/mailname dest=/etc mode=0644
+  notify: restart nullmailer
