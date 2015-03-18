@@ -9,3 +9,10 @@
 
 - name: Install fail2ban
   apt: pkg=fail2ban state=present
+
+- name: Set firewall default policy
+  ufw: state=enabled policy=reject
+
+- name: Allow ssh access
+  ufw: rule=allow port={{item}}
+  with_items: ufw_ports

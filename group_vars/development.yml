@@ -17,3 +17,8 @@ nullmailler_admin_mail: user@domain.com
 nullmailer_domain: domain.com
 
 newrelic_license_key: newrelic_key
+
+ufw_ports:
+  - 22
+  - 80
+  - 443
